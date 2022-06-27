@@ -2,7 +2,7 @@ FROM webdevops/apache:ubuntu-18.04
 
 LABEL maintainer="Eric Pfeiffer <computerfr33k@users.noreply.github.com>"
 
-ARG DOCUMENT_ROOT=/var/www/
+ARG DOCUMENT_ROOT=/var/www/vhosts
 ARG PHP_UPSTREAM_CONTAINER=php-fpm
 ARG PHP_UPSTREAM_PORT=9000
 ARG PHP_UPSTREAM_TIMEOUT=60
@@ -19,7 +19,7 @@ ENV LOG_STDERR=/var/log/apache2/error.log
 
 EXPOSE 80 443
 
-WORKDIR /var/www/
+WORKDIR /var/www/vhosts/
 
 COPY vhost.conf /etc/apache2/sites-enabled/vhost.conf
 
